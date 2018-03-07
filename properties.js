@@ -15,6 +15,6 @@ var properties = {
 
     minFramesSilenceForPause: 7, // number of non-silent frames before we pause. default 3 (300ms)
     minFramesSilenceForPlay: 3,  // number of silent frames before we start to clip silence from playback. default 3 (300ms)
-    maxStashFrames: 1000, // longest possible pause (in frames). default 1000 -> 100 sec
+    maxStashFrames: 500, // longest possible pause (in frames). default 1000 -> 100 sec
     websocketURL: "wss://pi.pe/websocket/?finger=" // where to find the redezvous server.
 };
