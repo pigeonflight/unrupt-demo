@@ -791,12 +791,14 @@
         $('#version').text(properties.versionname);
         tick = window.setInterval( t => {
             var scale = properties.maxStashFrames / 100.0;
+            var timeline_length = Math.floor(properties.maxStashFrames * properties.procFramesize / 44100);
             var spk = backlog_spk / scale;
             var sil = backlog_sil / scale;
             var timeline = Math.floor((backlog_spk + backlog_sil) * properties.procFramesize / 44100.0);
-            $('#unruptbuffer_len').text(timeline + " seconds");
+            $('#unruptbuffer_len').text(timeline + "/" + timeline_length + " seconds");
             $('#unruptbuffer_sil').css('width', sil + "%").attr('aria-valuenow', sil);
             $('#unruptbuffer_spk').css('width', spk + "%").attr('aria-valuenow', spk);
+
             var playout = backlog > 1 ? "playing" : "direct";
             var mode = (iamspeaking || paused) ? "paused" : playout;
             $('#mode').text(mode);
